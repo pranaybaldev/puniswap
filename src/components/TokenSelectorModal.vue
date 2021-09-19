@@ -103,7 +103,7 @@
               :key="token.address + token.name + Math.random()"
               :style="{ opacity: isEitherInputOutput(token.address) ? 0.5 : 1 }"
               class="token-list-container"
-              @click="setInputOrOutputToken(token)"
+              @click="!isEitherInputOutput(token.address) && setInputOrOutputToken(token)"
             >
               <img :src="token.logoURI" alt="logo" class="token-logo" />
               <div class="modal">
@@ -398,6 +398,7 @@ export default defineComponent({
 
 .footer {
   /* width: 100%; */
+  margin-top: 5px;
   border-radius: 0px 0px 20px 20px;
   padding: 20px;
   background-color: rgb(247, 248, 250);
