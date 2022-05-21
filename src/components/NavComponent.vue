@@ -7,9 +7,7 @@
       :class="{ active: activeMenuItem === menuItem[0] }"
       @click="activeMenuItem = menuItem[0]"
       :to="{ name: menuItem[0] }"
-    >
-      {{ menuItem[1] }}
-    </router-link>
+    >{{ menuItem[1] }}</router-link>
   </div>
 </template>
 
@@ -26,7 +24,6 @@ export default defineComponent({
         ['swap', 'Swap'],
         ['pool', 'Pool'],
         ['bonus', 'Bonus'],
-        ['hirePranay', 'Hire Pranay!'],
       ],
     };
   },
