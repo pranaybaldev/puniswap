@@ -374,7 +374,6 @@ export default defineComponent({
 
   max-width: 420px;
   max-height: 80vh;
-  min-height: 80vh;
 
   border-radius: 20px;
 
