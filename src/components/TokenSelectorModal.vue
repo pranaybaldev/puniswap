@@ -63,14 +63,14 @@
                 :key="index"
                 :class="{
                   'common-bases-token-disabled': isEitherInputOutput(
-                    tokenList[index].address
+                    tokenList[index]?.address
                   ),
                   'common-bases-token': !isEitherInputOutput(
-                    tokenList[index].address
+                    tokenList[index]?.address
                   ),
                 }"
                 @click="
-                  !isEitherInputOutput(tokenList[index].address) &&
+                  !isEitherInputOutput(tokenList[index]?.address) &&
                     setInputOrOutputToken(tokenList[index])
                 "
               >
@@ -79,7 +79,7 @@
                   class="token-logo"
                   style="margin-right: 8px"
                 />
-                <div class="heading-text">{{ tokenList[index].symbol }}</div>
+                <div class="heading-text">{{ tokenList[index]?.symbol }}</div>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@
             >
               <img :src="token.logoURI" alt="logo" class="token-logo" />
               <div class="modal">
-                <div :title="token.name">{{ token.symbol }}</div>
+                <div :title="token.name">{{ token?.symbol }}</div>
                 <div class="token-subheading">{{ token.name }}</div>
               </div>
               <span></span>

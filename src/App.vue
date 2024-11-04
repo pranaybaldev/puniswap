@@ -79,33 +79,43 @@ export default defineComponent({
     // );
   },
   async mounted() {
+    /*eslint-disable*/
     // TODO move url to constants
+
+  function getUniqueListBy(arr, key) {
+    return [...new Map(arr.map(item => [item[key], item])).values()]
+  };
     const optimismListResponse = await axios.get(
       'https://static.optimism.io/optimism.tokenlist.json',
     );
     const geminiListResponse = await axios.get(
-      'https://www.gemini.com/uniswap/manifest.json',
+      'https://static.optimism.io/optimism.tokenlist.json',
     );
+    // let setObj:any = new Set(optimismListResponse.data.tokens.map(JSON.stringify));
+    // let output:any = Array.from(setObj).map(JSON.parse);
+    let uniqueTokens = getUniqueListBy(optimismListResponse.data.tokens, 'name');
+    // console.log('unique', uniqueTokens)
     // TODO: for scalability lists should be inside a cumulativeTokenList field in store
-    this.setOptimismTokenList(optimismListResponse?.data);
-    this.setGeminiTokenList(geminiListResponse?.data);
+    let modifiedList = {...optimismListResponse?.data, tokens: uniqueTokens};
+    this.setOptimismTokenList(modifiedList);
+    this.setGeminiTokenList(modifiedList);
     this.setSelectTokenList({
       key: 'geminiTokenList',
-      value: geminiListResponse?.data,
+      value: modifiedList,
       type: 'add',
     });
     this.setSelectTokenList({
       key: 'optimisimTokenList',
-      value: optimismListResponse?.data,
+      value: modifiedList,
       type: 'add',
     });
     this.setSwapTokenKey({
       key: 'input',
-      value: { ...geminiListResponse?.data.tokens[0], balanceAmount: 120 },
+      value: uniqueTokens[0],
     });
     this.setSwapTokenKey({
       key: 'output',
-      value: { ...geminiListResponse?.data.tokens[1], balanceAmount: 10 },
+      value: uniqueTokens[1] ,
     });
   },
   methods: {

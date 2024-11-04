@@ -168,8 +168,8 @@
       </g>
     </g>
   </svg> -->
-  <p style="margin-top: -30px;"> <b>Challenge</b>: Implement the responsive zigzag pattern (<a href="https://hackatom.netlify.app/#:~:text=SUPPORTING%20JUDGES%20%26%20MENTORS" target="_blank">link</a>) using flex. Solution is not efficient but can be improved by using a precomputed array.</p>
-  <div class="emoji">😭</div>
+  <p style="margin-top: -30px;"> <b>Challenge</b>: Implement the responsive zigzag pattern (<a href="https://hackatom.netlify.app/#:~:text=SUPPORTING%20JUDGES%20%26%20MENTORS" target="_blank">link</a>) using flex.</p>
+  <!-- <div class="emoji">😭</div> -->
   <iframe
     src="https://codesandbox.io/embed/elegant-http-n6915?fontsize=14&hidenavigation=1&theme=dark"
     style="
